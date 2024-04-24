@@ -45,7 +45,8 @@ shinyServer(function(input, output) {
     
     if (is.null(cdata()))
       return(NULL)
-    cdata()[order(cdata()[c("composer")]),]
+    # cdata()[order(cdata()[c("composer")]),]
+    dplyr::arrange(cdata(), desc(composer)) 
     
   }, include.rownames = FALSE)
   
